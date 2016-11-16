@@ -1,6 +1,6 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.24.0-abedcd4 modeling language!*/
-
+package com.seg2105a.esther.cookhelper;
 
 import java.util.*;
 
@@ -545,8 +545,8 @@ public class Recipe
             "title" + ":" + getTitle()+ "," +
             "description" + ":" + getDescription()+ "," +
             "cookingTime" + ":" + getCookingTime()+ "," +
-            "image" + ":" + getImage()+ "]" + System.getProperties().getProperty("line.separator") +
-            "  " + "system = "+(getSystem()!=null?Integer.toHexString(System.identityHashCode(getSystem())):"null")
+            "image" + ":" + getImage()+ "]" + //System.getProperties().getProperty("line.separator") +
+            "  " + "system = "+(getSystem()!=null?Integer.toHexString(5):"null")//System.identityHashCode(getSystem())):"null")
      + outputString;
   }
 }

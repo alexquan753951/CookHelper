@@ -1,7 +1,7 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.24.0-abedcd4 modeling language!*/
 
-
+package com.seg2105a.esther.cookhelper;
 import java.util.*;
 
 // line 120 "model.ump"
@@ -266,8 +266,8 @@ public class Ingredient
   {
     String outputString = "";
     return super.toString() + "["+
-            "name" + ":" + getName()+ "]" + System.getProperties().getProperty("line.separator") +
-            "  " + "system = "+(getSystem()!=null?Integer.toHexString(System.identityHashCode(getSystem())):"null")
+            "name" + ":" + getName()+ "]" + //System.getProperties().getProperty("line.separator") +
+            "  " + "system = "+(getSystem()!=null?Integer.toHexString(5):"null")//System.identityHashCode(getSystem())):"null")
      + outputString;
   }
 }

@@ -1,14 +1,20 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.24.0-abedcd4 modeling language!*/
+package com.seg2105a.esther.cookhelper;
 
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import java.util.*;
 
 // line 2 "model.ump"
 // line 128 "model.ump"
-public class System
+public class System extends AppCompatActivity
 {
-
   //------------------------
   // MEMBER VARIABLES
   //------------------------
@@ -26,6 +32,11 @@ public class System
   // CONSTRUCTOR
   //------------------------
 
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+  }
   public System(String aDatabase)
   {
     database = aDatabase;
@@ -521,7 +532,7 @@ public class System
 
   // line 33 "model.ump"
    public Recipe[] rankRecipes(){
-    
+     return new Recipe[2];
   }
 
   // line 36 "model.ump"
