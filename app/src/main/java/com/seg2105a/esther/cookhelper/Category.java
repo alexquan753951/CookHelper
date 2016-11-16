@@ -18,20 +18,20 @@ public class Category
 
   //Category Associations
   private List<Recipe> recipes;
-  private System system;
+  private MainActivity mainActivity;
 
   //------------------------
   // CONSTRUCTOR
   //------------------------
 
-  public Category(String aName, System aSystem)
+  public Category(String aName, MainActivity aMainActivity)
   {
     name = aName;
     recipes = new ArrayList<Recipe>();
-    boolean didAddSystem = setSystem(aSystem);
+    boolean didAddSystem = setSystem(aMainActivity);
     if (!didAddSystem)
     {
-      throw new RuntimeException("Unable to create category due to system");
+      throw new RuntimeException("Unable to create category due to mainActivity");
     }
   }
 
@@ -82,9 +82,9 @@ public class Category
     return index;
   }
 
-  public System getSystem()
+  public MainActivity getMainActivity()
   {
-    return system;
+    return mainActivity;
   }
 
   public static int minimumNumberOfRecipes()
@@ -169,21 +169,21 @@ public class Category
     return wasAdded;
   }
 
-  public boolean setSystem(System aSystem)
+  public boolean setSystem(MainActivity aMainActivity)
   {
     boolean wasSet = false;
-    if (aSystem == null)
+    if (aMainActivity == null)
     {
       return wasSet;
     }
 
-    System existingSystem = system;
-    system = aSystem;
-    if (existingSystem != null && !existingSystem.equals(aSystem))
+    MainActivity existingMainActivity = mainActivity;
+    mainActivity = aMainActivity;
+    if (existingMainActivity != null && !existingMainActivity.equals(aMainActivity))
     {
-      existingSystem.removeCategory(this);
+      existingMainActivity.removeCategory(this);
     }
-    system.addCategory(this);
+    mainActivity.addCategory(this);
     wasSet = true;
     return wasSet;
   }
@@ -196,9 +196,9 @@ public class Category
     {
       aRecipe.removeCategory(this);
     }
-    System placeholderSystem = system;
-    this.system = null;
-    placeholderSystem.removeCategory(this);
+    MainActivity placeholderMainActivity = mainActivity;
+    this.mainActivity = null;
+    placeholderMainActivity.removeCategory(this);
   }
 
 
@@ -206,8 +206,8 @@ public class Category
   {
     String outputString = "";
     return super.toString() + "["+
-            "name" + ":" + getName()+ "]" + //System.getProperties().getProperty("line.separator") +
-            "  " + "system = "+(getSystem()!=null?Integer.toHexString(5):"null")//System.identityHashCode(getSystem())):"null")
+            "name" + ":" + getName()+ "]" + //MainActivity.getProperties().getProperty("line.separator") +
+            "  " + "mainActivity = "+(getMainActivity()!=null?Integer.toHexString(5):"null")//MainActivity.identityHashCode(getMainActivity())):"null")
      + outputString;
   }
 }

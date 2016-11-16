@@ -20,7 +20,7 @@ public class Recipe
   private String image;
 
   //Recipe Associations
-  private System system;
+  private MainActivity mainActivity;
   private List<RecipeStep> recipeSteps;
   private List<Category> categories;
   private List<RecipeType> recipeTypes;
@@ -29,16 +29,16 @@ public class Recipe
   // CONSTRUCTOR
   //------------------------
 
-  public Recipe(String aTitle, String aDescription, String aCookingTime, String aImage, System aSystem)
+  public Recipe(String aTitle, String aDescription, String aCookingTime, String aImage, MainActivity aMainActivity)
   {
     title = aTitle;
     description = aDescription;
     cookingTime = aCookingTime;
     image = aImage;
-    boolean didAddSystem = setSystem(aSystem);
+    boolean didAddSystem = setSystem(aMainActivity);
     if (!didAddSystem)
     {
-      throw new RuntimeException("Unable to create recipe due to system");
+      throw new RuntimeException("Unable to create recipe due to mainActivity");
     }
     recipeSteps = new ArrayList<RecipeStep>();
     categories = new ArrayList<Category>();
@@ -101,9 +101,9 @@ public class Recipe
     return image;
   }
 
-  public System getSystem()
+  public MainActivity getMainActivity()
   {
-    return system;
+    return mainActivity;
   }
 
   public RecipeStep getRecipeStep(int index)
@@ -196,21 +196,21 @@ public class Recipe
     return index;
   }
 
-  public boolean setSystem(System aSystem)
+  public boolean setSystem(MainActivity aMainActivity)
   {
     boolean wasSet = false;
-    if (aSystem == null)
+    if (aMainActivity == null)
     {
       return wasSet;
     }
 
-    System existingSystem = system;
-    system = aSystem;
-    if (existingSystem != null && !existingSystem.equals(aSystem))
+    MainActivity existingMainActivity = mainActivity;
+    mainActivity = aMainActivity;
+    if (existingMainActivity != null && !existingMainActivity.equals(aMainActivity))
     {
-      existingSystem.removeRecipe(this);
+      existingMainActivity.removeRecipe(this);
     }
-    system.addRecipe(this);
+    mainActivity.addRecipe(this);
     wasSet = true;
     return wasSet;
   }
@@ -453,9 +453,9 @@ public class Recipe
 
   public void delete()
   {
-    System placeholderSystem = system;
-    this.system = null;
-    placeholderSystem.removeRecipe(this);
+    MainActivity placeholderMainActivity = mainActivity;
+    this.mainActivity = null;
+    placeholderMainActivity.removeRecipe(this);
     while (recipeSteps.size() > 0)
     {
       RecipeStep aRecipeStep = recipeSteps.get(recipeSteps.size() - 1);
@@ -545,8 +545,8 @@ public class Recipe
             "title" + ":" + getTitle()+ "," +
             "description" + ":" + getDescription()+ "," +
             "cookingTime" + ":" + getCookingTime()+ "," +
-            "image" + ":" + getImage()+ "]" + //System.getProperties().getProperty("line.separator") +
-            "  " + "system = "+(getSystem()!=null?Integer.toHexString(5):"null")//System.identityHashCode(getSystem())):"null")
+            "image" + ":" + getImage()+ "]" + //MainActivity.getProperties().getProperty("line.separator") +
+            "  " + "mainActivity = "+(getMainActivity()!=null?Integer.toHexString(5):"null")//MainActivity.identityHashCode(getMainActivity())):"null")
      + outputString;
   }
 }

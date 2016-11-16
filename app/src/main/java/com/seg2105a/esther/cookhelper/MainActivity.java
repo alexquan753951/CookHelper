@@ -4,25 +4,21 @@ package com.seg2105a.esther.cookhelper;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import java.util.*;
 
 // line 2 "model.ump"
 // line 128 "model.ump"
-public class System extends AppCompatActivity
+public class MainActivity extends AppCompatActivity
 {
   //------------------------
   // MEMBER VARIABLES
   //------------------------
 
-  //System Attributes
+  //MainActivity Attributes
   private String database;
 
-  //System Associations
+  //MainActivity Associations
   private List<Recipe> recipes;
   private List<Category> categories;
   private List<RecipeType> recipeTypes;
@@ -37,7 +33,7 @@ public class System extends AppCompatActivity
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
   }
-  public System(String aDatabase)
+  public MainActivity(String aDatabase)
   {
     database = aDatabase;
     recipes = new ArrayList<Recipe>();
@@ -197,8 +193,8 @@ public class System extends AppCompatActivity
   {
     boolean wasAdded = false;
     if (recipes.contains(aRecipe)) { return false; }
-    System existingSystem = aRecipe.getSystem();
-    boolean isNewSystem = existingSystem != null && !this.equals(existingSystem);
+    MainActivity existingMainActivity = aRecipe.getMainActivity();
+    boolean isNewSystem = existingMainActivity != null && !this.equals(existingMainActivity);
     if (isNewSystem)
     {
       aRecipe.setSystem(this);
@@ -215,7 +211,7 @@ public class System extends AppCompatActivity
   {
     boolean wasRemoved = false;
     //Unable to remove aRecipe, as it must always have a system
-    if (!this.equals(aRecipe.getSystem()))
+    if (!this.equals(aRecipe.getMainActivity()))
     {
       recipes.remove(aRecipe);
       wasRemoved = true;
@@ -269,8 +265,8 @@ public class System extends AppCompatActivity
   {
     boolean wasAdded = false;
     if (categories.contains(aCategory)) { return false; }
-    System existingSystem = aCategory.getSystem();
-    boolean isNewSystem = existingSystem != null && !this.equals(existingSystem);
+    MainActivity existingMainActivity = aCategory.getMainActivity();
+    boolean isNewSystem = existingMainActivity != null && !this.equals(existingMainActivity);
     if (isNewSystem)
     {
       aCategory.setSystem(this);
@@ -287,7 +283,7 @@ public class System extends AppCompatActivity
   {
     boolean wasRemoved = false;
     //Unable to remove aCategory, as it must always have a system
-    if (!this.equals(aCategory.getSystem()))
+    if (!this.equals(aCategory.getMainActivity()))
     {
       categories.remove(aCategory);
       wasRemoved = true;
@@ -341,8 +337,8 @@ public class System extends AppCompatActivity
   {
     boolean wasAdded = false;
     if (recipeTypes.contains(aRecipeType)) { return false; }
-    System existingSystem = aRecipeType.getSystem();
-    boolean isNewSystem = existingSystem != null && !this.equals(existingSystem);
+    MainActivity existingMainActivity = aRecipeType.getMainActivity();
+    boolean isNewSystem = existingMainActivity != null && !this.equals(existingMainActivity);
     if (isNewSystem)
     {
       aRecipeType.setSystem(this);
@@ -359,7 +355,7 @@ public class System extends AppCompatActivity
   {
     boolean wasRemoved = false;
     //Unable to remove aRecipeType, as it must always have a system
-    if (!this.equals(aRecipeType.getSystem()))
+    if (!this.equals(aRecipeType.getMainActivity()))
     {
       recipeTypes.remove(aRecipeType);
       wasRemoved = true;
@@ -413,8 +409,8 @@ public class System extends AppCompatActivity
   {
     boolean wasAdded = false;
     if (ingredients.contains(aIngredient)) { return false; }
-    System existingSystem = aIngredient.getSystem();
-    boolean isNewSystem = existingSystem != null && !this.equals(existingSystem);
+    MainActivity existingMainActivity = aIngredient.getMainActivity();
+    boolean isNewSystem = existingMainActivity != null && !this.equals(existingMainActivity);
     if (isNewSystem)
     {
       aIngredient.setSystem(this);
@@ -431,7 +427,7 @@ public class System extends AppCompatActivity
   {
     boolean wasRemoved = false;
     //Unable to remove aIngredient, as it must always have a system
-    if (!this.equals(aIngredient.getSystem()))
+    if (!this.equals(aIngredient.getMainActivity()))
     {
       ingredients.remove(aIngredient);
       wasRemoved = true;

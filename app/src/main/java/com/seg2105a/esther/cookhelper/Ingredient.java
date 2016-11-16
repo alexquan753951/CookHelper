@@ -17,7 +17,7 @@ public class Ingredient
   private String name;
 
   //Ingredient Associations
-  private System system;
+  private MainActivity mainActivity;
   private List<Recipe> recipes;
   private List<RecipeStep> recipeSteps;
 
@@ -25,13 +25,13 @@ public class Ingredient
   // CONSTRUCTOR
   //------------------------
 
-  public Ingredient(String aName, System aSystem)
+  public Ingredient(String aName, MainActivity aMainActivity)
   {
     name = aName;
-    boolean didAddSystem = setSystem(aSystem);
+    boolean didAddSystem = setSystem(aMainActivity);
     if (!didAddSystem)
     {
-      throw new RuntimeException("Unable to create ingredient due to system");
+      throw new RuntimeException("Unable to create ingredient due to mainActivity");
     }
     recipes = new ArrayList<Recipe>();
     recipeSteps = new ArrayList<RecipeStep>();
@@ -54,9 +54,9 @@ public class Ingredient
     return name;
   }
 
-  public System getSystem()
+  public MainActivity getMainActivity()
   {
-    return system;
+    return mainActivity;
   }
 
   public Recipe getRecipe(int index)
@@ -119,21 +119,21 @@ public class Ingredient
     return index;
   }
 
-  public boolean setSystem(System aSystem)
+  public boolean setSystem(MainActivity aMainActivity)
   {
     boolean wasSet = false;
-    if (aSystem == null)
+    if (aMainActivity == null)
     {
       return wasSet;
     }
 
-    System existingSystem = system;
-    system = aSystem;
-    if (existingSystem != null && !existingSystem.equals(aSystem))
+    MainActivity existingMainActivity = mainActivity;
+    mainActivity = aMainActivity;
+    if (existingMainActivity != null && !existingMainActivity.equals(aMainActivity))
     {
-      existingSystem.removeIngredient(this);
+      existingMainActivity.removeIngredient(this);
     }
-    system.addIngredient(this);
+    mainActivity.addIngredient(this);
     wasSet = true;
     return wasSet;
   }
@@ -254,9 +254,9 @@ public class Ingredient
 
   public void delete()
   {
-    System placeholderSystem = system;
-    this.system = null;
-    placeholderSystem.removeIngredient(this);
+    MainActivity placeholderMainActivity = mainActivity;
+    this.mainActivity = null;
+    placeholderMainActivity.removeIngredient(this);
     recipes.clear();
     recipeSteps.clear();
   }
@@ -266,8 +266,8 @@ public class Ingredient
   {
     String outputString = "";
     return super.toString() + "["+
-            "name" + ":" + getName()+ "]" + //System.getProperties().getProperty("line.separator") +
-            "  " + "system = "+(getSystem()!=null?Integer.toHexString(5):"null")//System.identityHashCode(getSystem())):"null")
+            "name" + ":" + getName()+ "]" + //MainActivity.getProperties().getProperty("line.separator") +
+            "  " + "mainActivity = "+(getMainActivity()!=null?Integer.toHexString(5):"null")//MainActivity.identityHashCode(getMainActivity())):"null")
      + outputString;
   }
 }

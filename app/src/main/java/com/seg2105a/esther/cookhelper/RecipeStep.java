@@ -141,8 +141,8 @@ public class RecipeStep
             "number" + ":" + getNumber()+ "," +
             "description" + ":" + getDescription()+ "," +
             "timeRequired" + ":" + getTimeRequired()+ "," +
-            "completed" + ":" + getCompleted()+ "]" + //System.getProperties().getProperty("line.separator") +
-            "  " + "recipe = "+(getRecipe()!=null?Integer.toHexString(5):"null")//System.identityHashCode(getRecipe())):"null")
+            "completed" + ":" + getCompleted()+ "]" + //MainActivity.getProperties().getProperty("line.separator") +
+            "  " + "recipe = "+(getRecipe()!=null?Integer.toHexString(5):"null")//MainActivity.identityHashCode(getRecipe())):"null")
      + outputString;
   }
 }
