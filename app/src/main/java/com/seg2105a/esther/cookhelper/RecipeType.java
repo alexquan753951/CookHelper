@@ -4,19 +4,19 @@
 
 import java.util.*;
 
-// line 108 "model.ump"
-// line 135 "model.ump"
-public class Category
+// line 114 "model.ump"
+// line 142 "model.ump"
+public class RecipeType
 {
 
   //------------------------
   // MEMBER VARIABLES
   //------------------------
 
-  //Category Attributes
+  //RecipeType Attributes
   private String name;
 
-  //Category Associations
+  //RecipeType Associations
   private List<Recipe> recipes;
   private System system;
 
@@ -24,14 +24,14 @@ public class Category
   // CONSTRUCTOR
   //------------------------
 
-  public Category(String aName, System aSystem)
+  public RecipeType(String aName, System aSystem)
   {
     name = aName;
     recipes = new ArrayList<Recipe>();
     boolean didAddSystem = setSystem(aSystem);
     if (!didAddSystem)
     {
-      throw new RuntimeException("Unable to create category due to system");
+      throw new RuntimeException("Unable to create recipeType due to system");
     }
   }
 
@@ -97,13 +97,13 @@ public class Category
     boolean wasAdded = false;
     if (recipes.contains(aRecipe)) { return false; }
     recipes.add(aRecipe);
-    if (aRecipe.indexOfCategory(this) != -1)
+    if (aRecipe.indexOfRecipeType(this) != -1)
     {
       wasAdded = true;
     }
     else
     {
-      wasAdded = aRecipe.addCategory(this);
+      wasAdded = aRecipe.addRecipeType(this);
       if (!wasAdded)
       {
         recipes.remove(aRecipe);
@@ -122,13 +122,13 @@ public class Category
 
     int oldIndex = recipes.indexOf(aRecipe);
     recipes.remove(oldIndex);
-    if (aRecipe.indexOfCategory(this) == -1)
+    if (aRecipe.indexOfRecipeType(this) == -1)
     {
       wasRemoved = true;
     }
     else
     {
-      wasRemoved = aRecipe.removeCategory(this);
+      wasRemoved = aRecipe.removeRecipeType(this);
       if (!wasRemoved)
       {
         recipes.add(oldIndex,aRecipe);
@@ -181,9 +181,9 @@ public class Category
     system = aSystem;
     if (existingSystem != null && !existingSystem.equals(aSystem))
     {
-      existingSystem.removeCategory(this);
+      existingSystem.removeRecipeType(this);
     }
-    system.addCategory(this);
+    system.addRecipeType(this);
     wasSet = true;
     return wasSet;
   }
@@ -194,11 +194,11 @@ public class Category
     recipes.clear();
     for(Recipe aRecipe : copyOfRecipes)
     {
-      aRecipe.removeCategory(this);
+      aRecipe.removeRecipeType(this);
     }
     System placeholderSystem = system;
     this.system = null;
-    placeholderSystem.removeCategory(this);
+    placeholderSystem.removeRecipeType(this);
   }
 
 
