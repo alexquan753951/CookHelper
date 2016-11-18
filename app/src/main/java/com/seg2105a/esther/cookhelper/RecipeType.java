@@ -4,19 +4,19 @@
 package com.seg2105a.esther.cookhelper;
 import java.util.*;
 
-// line 108 "model.ump"
-// line 135 "model.ump"
-public class Category
+// line 114 "model.ump"
+// line 142 "model.ump"
+public class RecipeType
 {
 
   //------------------------
   // MEMBER VARIABLES
   //------------------------
 
-  //Category Attributes
+  //RecipeType Attributes
   private String name;
 
-  //Category Associations
+  //RecipeType Associations
   private List<Recipe> recipes;
   private MainActivity mainActivity;
 
@@ -24,14 +24,14 @@ public class Category
   // CONSTRUCTOR
   //------------------------
 
-  public Category(String aName, MainActivity aMainActivity)
+  public RecipeType(String aName, MainActivity aMainActivity)
   {
     name = aName;
     recipes = new ArrayList<Recipe>();
     boolean didAddSystem = setSystem(aMainActivity);
     if (!didAddSystem)
     {
-      throw new RuntimeException("Unable to create category due to mainActivity");
+      throw new RuntimeException("Unable to create recipeType due to mainActivity");
     }
   }
 
@@ -97,13 +97,13 @@ public class Category
     boolean wasAdded = false;
     if (recipes.contains(aRecipe)) { return false; }
     recipes.add(aRecipe);
-    if (aRecipe.indexOfCategory(this) != -1)
+    if (aRecipe.indexOfRecipeType(this) != -1)
     {
       wasAdded = true;
     }
     else
     {
-      wasAdded = aRecipe.addCategory(this);
+      wasAdded = aRecipe.addRecipeType(this);
       if (!wasAdded)
       {
         recipes.remove(aRecipe);
@@ -122,13 +122,13 @@ public class Category
 
     int oldIndex = recipes.indexOf(aRecipe);
     recipes.remove(oldIndex);
-    if (aRecipe.indexOfCategory(this) == -1)
+    if (aRecipe.indexOfRecipeType(this) == -1)
     {
       wasRemoved = true;
     }
     else
     {
-      wasRemoved = aRecipe.removeCategory(this);
+      wasRemoved = aRecipe.removeRecipeType(this);
       if (!wasRemoved)
       {
         recipes.add(oldIndex,aRecipe);
@@ -181,9 +181,9 @@ public class Category
     mainActivity = aMainActivity;
     if (existingMainActivity != null && !existingMainActivity.equals(aMainActivity))
     {
-      existingMainActivity.removeCategory(this);
+      existingMainActivity.removeRecipeType(this);
     }
-    mainActivity.addCategory(this);
+    mainActivity.addRecipeType(this);
     wasSet = true;
     return wasSet;
   }
@@ -194,11 +194,11 @@ public class Category
     recipes.clear();
     for(Recipe aRecipe : copyOfRecipes)
     {
-      aRecipe.removeCategory(this);
+      aRecipe.removeRecipeType(this);
     }
     MainActivity placeholderMainActivity = mainActivity;
     this.mainActivity = null;
-    placeholderMainActivity.removeCategory(this);
+    placeholderMainActivity.removeRecipeType(this);
   }
 
 
