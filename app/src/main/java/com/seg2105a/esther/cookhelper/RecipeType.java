@@ -18,20 +18,20 @@ public class RecipeType
 
   //RecipeType Associations
   private List<Recipe> recipes;
-  private MainActivity mainActivity;
+  private RecipeSystem recipeSystem;
 
   //------------------------
   // CONSTRUCTOR
   //------------------------
 
-  public RecipeType(String aName, MainActivity aMainActivity)
+  public RecipeType(String aName, RecipeSystem aRecipeSystem)
   {
     name = aName;
     recipes = new ArrayList<Recipe>();
-    boolean didAddSystem = setSystem(aMainActivity);
+    boolean didAddSystem = setSystem(aRecipeSystem);
     if (!didAddSystem)
     {
-      throw new RuntimeException("Unable to create recipeType due to mainActivity");
+      throw new RuntimeException("Unable to create recipeType due to recipeSystem");
     }
   }
 
@@ -82,9 +82,9 @@ public class RecipeType
     return index;
   }
 
-  public MainActivity getMainActivity()
+  public RecipeSystem getRecipeSystem()
   {
-    return mainActivity;
+    return recipeSystem;
   }
 
   public static int minimumNumberOfRecipes()
@@ -169,21 +169,21 @@ public class RecipeType
     return wasAdded;
   }
 
-  public boolean setSystem(MainActivity aMainActivity)
+  public boolean setSystem(RecipeSystem aRecipeSystem)
   {
     boolean wasSet = false;
-    if (aMainActivity == null)
+    if (aRecipeSystem == null)
     {
       return wasSet;
     }
 
-    MainActivity existingMainActivity = mainActivity;
-    mainActivity = aMainActivity;
-    if (existingMainActivity != null && !existingMainActivity.equals(aMainActivity))
+    RecipeSystem existingRecipeSystem = recipeSystem;
+    recipeSystem = aRecipeSystem;
+    if (existingRecipeSystem != null && !existingRecipeSystem.equals(aRecipeSystem))
     {
-      existingMainActivity.removeRecipeType(this);
+      existingRecipeSystem.removeRecipeType(this);
     }
-    mainActivity.addRecipeType(this);
+    recipeSystem.addRecipeType(this);
     wasSet = true;
     return wasSet;
   }
@@ -196,9 +196,9 @@ public class RecipeType
     {
       aRecipe.removeRecipeType(this);
     }
-    MainActivity placeholderMainActivity = mainActivity;
-    this.mainActivity = null;
-    placeholderMainActivity.removeRecipeType(this);
+    RecipeSystem placeholderRecipeSystem = recipeSystem;
+    this.recipeSystem = null;
+    placeholderRecipeSystem.removeRecipeType(this);
   }
 
 
@@ -206,8 +206,8 @@ public class RecipeType
   {
     String outputString = "";
     return super.toString() + "["+
-            "name" + ":" + getName()+ "]" + //MainActivity.getProperties().getProperty("line.separator") +
-            "  " + "mainActivity = "+(getMainActivity()!=null?Integer.toHexString(5):"null")//MainActivity.identityHashCode(getMainActivity())):"null")
+            "name" + ":" + getName()+ "]" + //RecipeSystem.getProperties().getProperty("line.separator") +
+            "  " + "recipeSystem = "+(getRecipeSystem()!=null?Integer.toHexString(5):"null")//RecipeSystem.identityHashCode(getRecipeSystem())):"null")
      + outputString;
   }
 }

@@ -1,4 +1,4 @@
-/*PLEASE DO NOT EDIT THIS CODE*/
+/*Esther Raji */
 /*This code was generated using the UMPLE 1.24.0-abedcd4 modeling language!*/
 package com.seg2105a.esther.cookhelper;
 
@@ -7,18 +7,16 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.util.*;
 
-// line 2 "model.ump"
-// line 128 "model.ump"
-public class MainActivity extends AppCompatActivity
+public class RecipeSystem extends AppCompatActivity
 {
   //------------------------
   // MEMBER VARIABLES
   //------------------------
 
-  //MainActivity Attributes
+  //RecipeSystem Attributes
   private String database;
 
-  //MainActivity Associations
+  //RecipeSystem Associations
   private List<Recipe> recipes;
   private List<Category> categories;
   private List<RecipeType> recipeTypes;
@@ -33,7 +31,7 @@ public class MainActivity extends AppCompatActivity
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
   }
-  public MainActivity(String aDatabase)
+  public RecipeSystem(String aDatabase)
   {
     database = aDatabase;
     recipes = new ArrayList<Recipe>();
@@ -193,8 +191,8 @@ public class MainActivity extends AppCompatActivity
   {
     boolean wasAdded = false;
     if (recipes.contains(aRecipe)) { return false; }
-    MainActivity existingMainActivity = aRecipe.getMainActivity();
-    boolean isNewSystem = existingMainActivity != null && !this.equals(existingMainActivity);
+    RecipeSystem existingRecipeSystem = aRecipe.getRecipeSystem();
+    boolean isNewSystem = existingRecipeSystem != null && !this.equals(existingRecipeSystem);
     if (isNewSystem)
     {
       aRecipe.setSystem(this);
@@ -211,7 +209,7 @@ public class MainActivity extends AppCompatActivity
   {
     boolean wasRemoved = false;
     //Unable to remove aRecipe, as it must always have a system
-    if (!this.equals(aRecipe.getMainActivity()))
+    if (!this.equals(aRecipe.getRecipeSystem()))
     {
       recipes.remove(aRecipe);
       wasRemoved = true;
@@ -265,8 +263,8 @@ public class MainActivity extends AppCompatActivity
   {
     boolean wasAdded = false;
     if (categories.contains(aCategory)) { return false; }
-    MainActivity existingMainActivity = aCategory.getMainActivity();
-    boolean isNewSystem = existingMainActivity != null && !this.equals(existingMainActivity);
+    RecipeSystem existingRecipeSystem = aCategory.getRecipeSystem();
+    boolean isNewSystem = existingRecipeSystem != null && !this.equals(existingRecipeSystem);
     if (isNewSystem)
     {
       aCategory.setSystem(this);
@@ -283,7 +281,7 @@ public class MainActivity extends AppCompatActivity
   {
     boolean wasRemoved = false;
     //Unable to remove aCategory, as it must always have a system
-    if (!this.equals(aCategory.getMainActivity()))
+    if (!this.equals(aCategory.getRecipeSystem()))
     {
       categories.remove(aCategory);
       wasRemoved = true;
@@ -337,8 +335,8 @@ public class MainActivity extends AppCompatActivity
   {
     boolean wasAdded = false;
     if (recipeTypes.contains(aRecipeType)) { return false; }
-    MainActivity existingMainActivity = aRecipeType.getMainActivity();
-    boolean isNewSystem = existingMainActivity != null && !this.equals(existingMainActivity);
+    RecipeSystem existingRecipeSystem = aRecipeType.getRecipeSystem();
+    boolean isNewSystem = existingRecipeSystem != null && !this.equals(existingRecipeSystem);
     if (isNewSystem)
     {
       aRecipeType.setSystem(this);
@@ -355,7 +353,7 @@ public class MainActivity extends AppCompatActivity
   {
     boolean wasRemoved = false;
     //Unable to remove aRecipeType, as it must always have a system
-    if (!this.equals(aRecipeType.getMainActivity()))
+    if (!this.equals(aRecipeType.getRecipeSystem()))
     {
       recipeTypes.remove(aRecipeType);
       wasRemoved = true;
@@ -409,8 +407,8 @@ public class MainActivity extends AppCompatActivity
   {
     boolean wasAdded = false;
     if (ingredients.contains(aIngredient)) { return false; }
-    MainActivity existingMainActivity = aIngredient.getMainActivity();
-    boolean isNewSystem = existingMainActivity != null && !this.equals(existingMainActivity);
+    RecipeSystem existingRecipeSystem = aIngredient.getRecipeSystem();
+    boolean isNewSystem = existingRecipeSystem != null && !this.equals(existingRecipeSystem);
     if (isNewSystem)
     {
       aIngredient.setSystem(this);
@@ -427,7 +425,7 @@ public class MainActivity extends AppCompatActivity
   {
     boolean wasRemoved = false;
     //Unable to remove aIngredient, as it must always have a system
-    if (!this.equals(aIngredient.getMainActivity()))
+    if (!this.equals(aIngredient.getRecipeSystem()))
     {
       ingredients.remove(aIngredient);
       wasRemoved = true;
@@ -490,12 +488,6 @@ public class MainActivity extends AppCompatActivity
       aIngredient.delete();
     }
   }
-
-  // line 8 "model.ump"
-   public void addRecipe(){
-    
-  }
-
   // line 11 "model.ump"
    public void editRecipe(){
     
@@ -532,33 +524,33 @@ public class MainActivity extends AppCompatActivity
   }
 
   // line 36 "model.ump"
-   public void createIngredient(){
-    
+   public void createIngredient(String recipeName){
+
   }
 
   // line 39 "model.ump"
-   public void deleteIngredient(){
+   public void deleteIngredient(String recipeName){
     
   }
 
   // line 42 "model.ump"
-   public void createCategory(){
+   public void createCategory(String recipeName){
     
   }
 
   // line 45 "model.ump"
-   public void deleteCategory(){
+   public void deleteCategory(String recipeName){
     
   }
 
   // line 48 "model.ump"
-   public void createRecipeType(){
-    
+   public void createRecipeType(String recipeName){
+
   }
 
   // line 51 "model.ump"
-   public void deleteRecipeType(){
-    
+   public void deleteRecipeType(String recipeName){
+      // find item in database and remove it;
   }
 
 

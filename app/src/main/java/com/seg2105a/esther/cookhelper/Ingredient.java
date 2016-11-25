@@ -17,7 +17,7 @@ public class Ingredient
   private String name;
 
   //Ingredient Associations
-  private MainActivity mainActivity;
+  private RecipeSystem recipeSystem;
   private List<Recipe> recipes;
   private List<RecipeStep> recipeSteps;
 
@@ -25,13 +25,13 @@ public class Ingredient
   // CONSTRUCTOR
   //------------------------
 
-  public Ingredient(String aName, MainActivity aMainActivity)
+  public Ingredient(String aName, RecipeSystem aRecipeSystem)
   {
     name = aName;
-    boolean didAddSystem = setSystem(aMainActivity);
+    boolean didAddSystem = setSystem(aRecipeSystem);
     if (!didAddSystem)
     {
-      throw new RuntimeException("Unable to create ingredient due to mainActivity");
+      throw new RuntimeException("Unable to create ingredient due to recipeSystem");
     }
     recipes = new ArrayList<Recipe>();
     recipeSteps = new ArrayList<RecipeStep>();
@@ -54,9 +54,9 @@ public class Ingredient
     return name;
   }
 
-  public MainActivity getMainActivity()
+  public RecipeSystem getRecipeSystem()
   {
-    return mainActivity;
+    return recipeSystem;
   }
 
   public Recipe getRecipe(int index)
@@ -119,21 +119,21 @@ public class Ingredient
     return index;
   }
 
-  public boolean setSystem(MainActivity aMainActivity)
+  public boolean setSystem(RecipeSystem aRecipeSystem)
   {
     boolean wasSet = false;
-    if (aMainActivity == null)
+    if (aRecipeSystem == null)
     {
       return wasSet;
     }
 
-    MainActivity existingMainActivity = mainActivity;
-    mainActivity = aMainActivity;
-    if (existingMainActivity != null && !existingMainActivity.equals(aMainActivity))
+    RecipeSystem existingRecipeSystem = recipeSystem;
+    recipeSystem = aRecipeSystem;
+    if (existingRecipeSystem != null && !existingRecipeSystem.equals(aRecipeSystem))
     {
-      existingMainActivity.removeIngredient(this);
+      existingRecipeSystem.removeIngredient(this);
     }
-    mainActivity.addIngredient(this);
+    recipeSystem.addIngredient(this);
     wasSet = true;
     return wasSet;
   }
@@ -254,9 +254,9 @@ public class Ingredient
 
   public void delete()
   {
-    MainActivity placeholderMainActivity = mainActivity;
-    this.mainActivity = null;
-    placeholderMainActivity.removeIngredient(this);
+    RecipeSystem placeholderRecipeSystem = recipeSystem;
+    this.recipeSystem = null;
+    placeholderRecipeSystem.removeIngredient(this);
     recipes.clear();
     recipeSteps.clear();
   }
@@ -266,8 +266,8 @@ public class Ingredient
   {
     String outputString = "";
     return super.toString() + "["+
-            "name" + ":" + getName()+ "]" + //MainActivity.getProperties().getProperty("line.separator") +
-            "  " + "mainActivity = "+(getMainActivity()!=null?Integer.toHexString(5):"null")//MainActivity.identityHashCode(getMainActivity())):"null")
+            "name" + ":" + getName()+ "]" + //RecipeSystem.getProperties().getProperty("line.separator") +
+            "  " + "recipeSystem = "+(getRecipeSystem()!=null?Integer.toHexString(5):"null")//RecipeSystem.identityHashCode(getRecipeSystem())):"null")
      + outputString;
   }
 }
