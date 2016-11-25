@@ -15,6 +15,7 @@ public class RecipeSystem extends AppCompatActivity
 
   //RecipeSystem Attributes
   private String database;
+  //private DatabaseReference mDatabase;
 
   //RecipeSystem Associations
   private List<Recipe> recipes;
