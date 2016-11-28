@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "803411363108",
+    "firebase_url": "https://cookhelper-37fc5.firebaseio.com",
+    "project_id": "cookhelper-37fc5",
+    "storage_bucket": "cookhelper-37fc5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:803411363108:android:b2a1725de3f5fb42",
+        "android_client_info": {
+          "package_name": "com.seg2105a.esther.cookhelper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "803411363108-k65o9ojn8ugelgcqss720afmatcdioti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [{ "current_key": "AIzaSyDNnb22ZXAHZe1u0q0wbEeV_BQvDlBZ76U" }],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

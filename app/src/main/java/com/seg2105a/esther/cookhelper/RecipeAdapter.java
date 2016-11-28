@@ -29,11 +29,11 @@ public class RecipeAdapter extends ArrayAdapter<String> {
         textView.setText(values[position]);
         // Change the icon for Windows and iPhone
         String s = values[position];
-        if (s == null || s.isEmpty() || s.equals("empty")) {
+        /*if (s == null || s.isEmpty() || s.equals("empty")) {
             imageView.setImageResource(R.drawable.ic_logo_00);
         } else {
             imageView.setImageResource(R.drawable.ic_logo_01);
-        }
+        }*/
         return rowView;
     }
 }

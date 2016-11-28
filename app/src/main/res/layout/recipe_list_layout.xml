@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.seg2105a.esther.cookhelper.RecipeAdapter">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -42,7 +47,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/configImage"
         android:minHeight="60dp"
-        android:minWidth="30dp"
-        app:srcCompat="?android:attr/floatingToolbarOpenDrawable" />
+        android:minWidth="30dp"/>
 
 </LinearLayout>
