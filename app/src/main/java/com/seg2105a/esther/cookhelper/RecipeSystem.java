@@ -5,6 +5,10 @@ package com.seg2105a.esther.cookhelper;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
+
+import java.io.FileInputStream;
 import java.util.*;
 
 public class RecipeSystem extends AppCompatActivity
@@ -32,22 +36,22 @@ public class RecipeSystem extends AppCompatActivity
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
   }
-  public RecipeSystem(String aDatabase)
-  {
-    database = aDatabase;
-    recipes = new ArrayList<Recipe>();
-    categories = new ArrayList<Category>();
-    recipeTypes = new ArrayList<RecipeType>();
-    ingredients = new ArrayList<Ingredient>();
+  //public RecipeSystem(String aDatabase)
+  //{
+    //database = aDatabase;
+    //recipes = new ArrayList<Recipe>();
+    //categories = new ArrayList<Category>();
+    //recipeTypes = new ArrayList<RecipeType>();
+    //ingredients = new ArrayList<Ingredient>();
 
-      /*FirebaseOptions options = new FirebaseOptions.Builder()
+    /*FirebaseOptions options = new FirebaseOptions.Builder()
               .setServiceAccount(
                       new FileInputStream("path/to/serviceAccountKey.json"))
               .setDatabaseUrl("https://cookhelper-37fc5.firebaseio.com")
               .build();
 
-      FirebaseApp.initializeApp(options);*/
-  }
+    FirebaseApp.initializeApp(options);*/
+  //}
 
   //------------------------
   // INTERFACE
