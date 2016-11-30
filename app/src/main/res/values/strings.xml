@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">CookHelper</string>
+
+    <string-array name="search_type_array">
+        <item>By Ingredient</item>
+        <item>By Category</item>
+        <item>By Type</item>
+        <item>By Name</item>
+    </string-array>
+
+    <string name="title_activity_recipe_step">RecipeStepActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

@@ -16,14 +16,14 @@ public class RecipeAdapter extends ArrayAdapter<String> {
     private final Context context;
     private final String[] values;
     public RecipeAdapter(Context context, String[] values) {
-        super(context, R.layout.recipe_list_layout, values);
+        super(context, R.layout.activity_recipe_list_layout, values);
         this.context = context;
         this.values = values;
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = inflater.inflate(R.layout.recipe_list_layout, parent, false);
+        View rowView = inflater.inflate(R.layout.activity_recipe_list_layout, parent, false);
         TextView textView = (TextView) rowView.findViewById(R.id.itemName);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
         textView.setText(values[position]);

@@ -13,50 +13,65 @@
     tools:context="com.seg2105a.esther.cookhelper.RecipeSystem"
     android:weightSum="1">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:weightSum="1"
-        android:layout_marginLeft="@dimen/activity_vertical_margin"
-        android:layout_marginRight="@dimen/activity_vertical_margin"
         android:layout_weight="0.82">
 
-        <TextView
-            android:id="@+id/textView"
+        <android.support.design.widget.FloatingActionButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.02"
-            android:gravity="center_horizontal"
-            android:text="Recipe of the Day"
-            android:textSize="30sp" />
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@android:drawable/ic_menu_help"
+            android:id="@+id/floatingActionButton"
+            android:layout_weight="0.82" />
 
-        <TextView
-            android:id="@+id/textView3"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="Tomato Salsa"
-            android:textSize="24sp" />
+            android:orientation="vertical"
+            android:weightSum="1"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_weight="0.82">
 
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="286dp"
-            android:layout_height="206dp"
-            app:srcCompat="@drawable/salsa_image"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.02"
+                android:gravity="center_horizontal"
+                android:text="Recipe of the Day"
+                android:textSize="30sp" />
 
-        <RatingBar
-            android:id="@+id/ratingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:isIndicator="true"
-            android:numStars="5"
-            android:rating="4.5" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Tomato Salsa"
+                android:textSize="24sp" />
 
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="286dp"
+                android:layout_height="206dp"
+                app:srcCompat="@drawable/salsa_image"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:rating="4.5" />
+
+        </LinearLayout>
+    </RelativeLayout>
 
     <Space
         android:layout_width="match_parent"
@@ -85,8 +100,8 @@
         <Spinner
             android:layout_height="match_parent"
             android:id="@+id/spinner"
-            android:layout_weight="0.67"
-            android:layout_width="30dp" />
+            android:layout_width="wrap_content"
+            android:entries="@array/search_type_array" />
     </LinearLayout>
 
     <Button

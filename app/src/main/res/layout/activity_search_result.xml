@@ -32,8 +32,8 @@
         <Spinner
             android:layout_height="match_parent"
             android:id="@+id/spinner"
-            android:layout_weight="0.67"
-            android:layout_width="30dp" />
+            android:layout_width="wrap_content"
+            android:entries="@array/search_type_array" />
     </LinearLayout>
 
     <Button

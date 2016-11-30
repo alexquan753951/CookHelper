@@ -4,8 +4,6 @@
 package com.seg2105a.esther.cookhelper;
 import java.util.*;
 
-// line 120 "model.ump"
-// line 148 "model.ump"
 public class Ingredient
 {
 
@@ -266,8 +264,6 @@ public class Ingredient
   {
     String outputString = "";
     return super.toString() + "["+
-            "name" + ":" + getName()+ "]" + //RecipeSystem.getProperties().getProperty("line.separator") +
-            "  " + "recipeSystem = "+(getRecipeSystem()!=null?Integer.toHexString(5):"null")//RecipeSystem.identityHashCode(getRecipeSystem())):"null")
-     + outputString;
+            "name" + ":" + getName()+ "]" ;
   }
 }

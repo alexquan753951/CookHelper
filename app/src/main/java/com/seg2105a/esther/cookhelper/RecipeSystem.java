@@ -11,7 +11,7 @@ import com.google.firebase.FirebaseOptions;
 import java.io.FileInputStream;
 import java.util.*;
 
-public class RecipeSystem extends AppCompatActivity
+public class RecipeSystem
 {
   //------------------------
   // MEMBER VARIABLES
@@ -31,18 +31,13 @@ public class RecipeSystem extends AppCompatActivity
   // CONSTRUCTOR
   //------------------------
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-  }
-  //public RecipeSystem(String aDatabase)
-  //{
-    //database = aDatabase;
-    //recipes = new ArrayList<Recipe>();
-    //categories = new ArrayList<Category>();
-    //recipeTypes = new ArrayList<RecipeType>();
-    //ingredients = new ArrayList<Ingredient>();
+  public RecipeSystem(String aDatabase)
+  {
+    database = aDatabase;
+    recipes = new ArrayList<Recipe>();
+    categories = new ArrayList<Category>();
+    recipeTypes = new ArrayList<RecipeType>();
+    ingredients = new ArrayList<Ingredient>();
 
     /*FirebaseOptions options = new FirebaseOptions.Builder()
               .setServiceAccount(
@@ -51,7 +46,7 @@ public class RecipeSystem extends AppCompatActivity
               .build();
 
     FirebaseApp.initializeApp(options);*/
-  //}
+  }
 
   //------------------------
   // INTERFACE
@@ -195,7 +190,7 @@ public class RecipeSystem extends AppCompatActivity
     return 0;
   }
 
-  public Recipe addRecipe(String aTitle, String aDescription, String aCookingTime, String aImage)
+  public Recipe addRecipe(String aTitle, String aDescription, Double aCookingTime, String aImage)
   {
     return new Recipe(aTitle, aDescription, aCookingTime, aImage, this);
   }
