@@ -31,7 +31,7 @@ public class RecipeSystem
   // CONSTRUCTOR
   //------------------------
 
-  public RecipeSystem(String aDatabase)
+  protected RecipeSystem(String aDatabase)
   {
     database = aDatabase;
     recipes = new ArrayList<Recipe>();
@@ -46,6 +46,16 @@ public class RecipeSystem
               .build();
 
     FirebaseApp.initializeApp(options);*/
+  }
+
+  private static RecipeSystem instance = null;
+
+
+  public static RecipeSystem getInstance() {
+    if(instance == null){
+      instance = new RecipeSystem("null");
+    }
+    return instance;
   }
 
   //------------------------
