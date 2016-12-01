@@ -3,8 +3,6 @@
 
 package com.seg2105a.esther.cookhelper;
 
-// line 100 "model.ump"
-// line 161 "model.ump"
 public class RecipeStep
 {
 
@@ -141,8 +139,7 @@ public class RecipeStep
             "number" + ":" + getNumber()+ "," +
             "description" + ":" + getDescription()+ "," +
             "timeRequired" + ":" + getTimeRequired()+ "," +
-            "completed" + ":" + getCompleted()+ "]" + //RecipeSystem.getProperties().getProperty("line.separator") +
-            "  " + "recipe = "+(getRecipe()!=null?Integer.toHexString(5):"null")//RecipeSystem.identityHashCode(getRecipe())):"null")
-     + outputString;
+            "completed" + ":" + getCompleted()+ "]" +
+            "  " + outputString;
   }
 }

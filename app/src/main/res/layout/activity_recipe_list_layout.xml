@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.seg2105a.esther.cookhelper.RecipeAdapter">
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/icon"
+        android:minWidth="60dp"
+        android:minHeight="60dp"
+        android:nestedScrollingEnabled="true"
+        app:srcCompat="@drawable/default_meal_image" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="291dp"
+        android:layout_height="60dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recipe Name"
+            android:id="@+id/itemName"
+            android:layout_gravity="center_horizontal"
+            android:textSize="24sp"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Category., Type"
+            android:id="@+id/itemIngredient"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/configImage"
+        android:minHeight="60dp"
+        android:minWidth="30dp"
+        />
+
+</LinearLayout>

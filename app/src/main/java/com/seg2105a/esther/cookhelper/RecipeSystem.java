@@ -5,9 +5,13 @@ package com.seg2105a.esther.cookhelper;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
+
+import java.io.FileInputStream;
 import java.util.*;
 
-public class RecipeSystem extends AppCompatActivity
+public class RecipeSystem
 {
   //------------------------
   // MEMBER VARIABLES
@@ -15,6 +19,7 @@ public class RecipeSystem extends AppCompatActivity
 
   //RecipeSystem Attributes
   private String database;
+  //private DatabaseReference mDatabase;
 
   //RecipeSystem Associations
   private List<Recipe> recipes;
@@ -26,18 +31,31 @@ public class RecipeSystem extends AppCompatActivity
   // CONSTRUCTOR
   //------------------------
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-  }
-  public RecipeSystem(String aDatabase)
+  protected RecipeSystem(String aDatabase)
   {
     database = aDatabase;
     recipes = new ArrayList<Recipe>();
     categories = new ArrayList<Category>();
     recipeTypes = new ArrayList<RecipeType>();
     ingredients = new ArrayList<Ingredient>();
+
+    /*FirebaseOptions options = new FirebaseOptions.Builder()
+              .setServiceAccount(
+                      new FileInputStream("path/to/serviceAccountKey.json"))
+              .setDatabaseUrl("https://cookhelper-37fc5.firebaseio.com")
+              .build();
+
+    FirebaseApp.initializeApp(options);*/
+  }
+
+  private static RecipeSystem instance = null;
+
+
+  public static RecipeSystem getInstance() {
+    if(instance == null){
+      instance = new RecipeSystem("null");
+    }
+    return instance;
   }
 
   //------------------------
@@ -182,7 +200,7 @@ public class RecipeSystem extends AppCompatActivity
     return 0;
   }
 
-  public Recipe addRecipe(String aTitle, String aDescription, String aCookingTime, String aImage)
+  public Recipe addRecipe(String aTitle, String aDescription, Double aCookingTime, String aImage)
   {
     return new Recipe(aTitle, aDescription, aCookingTime, aImage, this);
   }

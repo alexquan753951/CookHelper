@@ -4,8 +4,6 @@ package com.seg2105a.esther.cookhelper;
 
 import java.util.*;
 
-// line 55 "model.ump"
-// line 156 "model.ump"
 public class Recipe
 {
 
@@ -16,7 +14,7 @@ public class Recipe
   //Recipe Attributes
   private String title;
   private String description;
-  private String cookingTime;
+  private Double cookingTime;
   private String image;
 
   //Recipe Associations
@@ -29,7 +27,7 @@ public class Recipe
   // CONSTRUCTOR
   //------------------------
 
-  public Recipe(String aTitle, String aDescription, String aCookingTime, String aImage, RecipeSystem aRecipeSystem)
+  public Recipe(String aTitle, String aDescription, Double aCookingTime, String aImage, RecipeSystem aRecipeSystem)
   {
     title = aTitle;
     description = aDescription;
@@ -65,7 +63,7 @@ public class Recipe
     return wasSet;
   }
 
-  public boolean setCookingTime(String aCookingTime)
+  public boolean setCookingTime(Double aCookingTime)
   {
     boolean wasSet = false;
     cookingTime = aCookingTime;
@@ -91,7 +89,7 @@ public class Recipe
     return description;
   }
 
-  public String getCookingTime()
+  public Double getCookingTime()
   {
     return cookingTime;
   }
@@ -451,92 +449,27 @@ public class Recipe
     return wasAdded;
   }
 
-  public void delete()
-  {
-    RecipeSystem placeholderRecipeSystem = recipeSystem;
-    this.recipeSystem = null;
-    placeholderRecipeSystem.removeRecipe(this);
-    while (recipeSteps.size() > 0)
-    {
-      RecipeStep aRecipeStep = recipeSteps.get(recipeSteps.size() - 1);
-      aRecipeStep.delete();
-      recipeSteps.remove(aRecipeStep);
-    }
-    
-    ArrayList<Category> copyOfCategories = new ArrayList<Category>(categories);
-    categories.clear();
-    for(Category aCategory : copyOfCategories)
-    {
-      aCategory.removeRecipe(this);
-    }
-    ArrayList<RecipeType> copyOfRecipeTypes = new ArrayList<RecipeType>(recipeTypes);
-    recipeTypes.clear();
-    for(RecipeType aRecipeType : copyOfRecipeTypes)
-    {
-      aRecipeType.removeRecipe(this);
-    }
-  }
+  public void delete() {
+      RecipeSystem placeholderRecipeSystem = recipeSystem;
+      this.recipeSystem = null;
+      placeholderRecipeSystem.removeRecipe(this);
+      while (recipeSteps.size() > 0) {
+          RecipeStep aRecipeStep = recipeSteps.get(recipeSteps.size() - 1);
+          aRecipeStep.delete();
+          recipeSteps.remove(aRecipeStep);
+      }
 
-  // line 63 "model.ump"
-   public void addIngredient(){
-    
+      ArrayList<Category> copyOfCategories = new ArrayList<Category>(categories);
+      categories.clear();
+      for (Category aCategory : copyOfCategories) {
+          aCategory.removeRecipe(this);
+      }
+      ArrayList<RecipeType> copyOfRecipeTypes = new ArrayList<RecipeType>(recipeTypes);
+      recipeTypes.clear();
+      for (RecipeType aRecipeType : copyOfRecipeTypes) {
+          aRecipeType.removeRecipe(this);
+      }
   }
-
-  // line 66 "model.ump"
-   public void removeIngredient(){
-    
-  }
-
-  // line 70 "model.ump"
-   public void addCategory(){
-    
-  }
-
-  // line 73 "model.ump"
-   public void removeCategory(){
-    
-  }
-
-  // line 76 "model.ump"
-   public void addRecipeType(){
-    
-  }
-
-  // line 79 "model.ump"
-   public void removeRecipeType(){
-    
-  }
-
-  // line 82 "model.ump"
-   public void addRecipeStep(){
-    
-  }
-
-  // line 85 "model.ump"
-   public void removeRecipeStep(){
-    
-  }
-
-  // line 88 "model.ump"
-   public void setTime(){
-    
-  }
-
-  // line 91 "model.ump"
-   public void setTitle(){
-    
-  }
-
-  // line 94 "model.ump"
-   public void setImage(){
-    
-  }
-
-  // line 97 "model.ump"
-   public void setDescription(){
-    
-  }
-
 
   public String toString()
   {
@@ -545,8 +478,8 @@ public class Recipe
             "title" + ":" + getTitle()+ "," +
             "description" + ":" + getDescription()+ "," +
             "cookingTime" + ":" + getCookingTime()+ "," +
-            "image" + ":" + getImage()+ "]" + //RecipeSystem.getProperties().getProperty("line.separator") +
-            "  " + "recipeSystem = "+(getRecipeSystem()!=null?Integer.toHexString(5):"null")//RecipeSystem.identityHashCode(getRecipeSystem())):"null")
+            "image" + ":" + getImage()+ "]" +
+            "  "
      + outputString;
   }
 }

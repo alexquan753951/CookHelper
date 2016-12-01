@@ -1,0 +1,23 @@
+<component name="libraryTable">
+<<<<<<< HEAD:.idea/libraries/appcompat_v7_24_2_1.xml
+  <library name="appcompat-v7-24.2.1">
+=======
+  <library name="appcompat-v7-25.0.1">
+    <ANNOTATIONS>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/annotations.zip!/" />
+    </ANNOTATIONS>
+>>>>>>> refs/remotes/VPoint/master:.idea/libraries/appcompat_v7_25_0_1.xml
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+<<<<<<< HEAD:.idea/libraries/appcompat_v7_24_2_1.xml
+      <root url="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/appcompat-v7/24.2.1/appcompat-v7-24.2.1-sources.jar!/" />
+=======
+      <root url="jar://$USER_HOME$/AppData/Local/Android/sdk1/extras/android/m2repository/com/android/support/appcompat-v7/25.0.1/appcompat-v7-25.0.1-sources.jar!/" />
+>>>>>>> refs/remotes/VPoint/master:.idea/libraries/appcompat_v7_25_0_1.xml
+    </SOURCES>
+  </library>
+</component>
